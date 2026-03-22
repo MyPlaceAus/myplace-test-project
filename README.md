@@ -151,3 +151,14 @@ Your solution is considered complete when all tests in:
 - `backend/src/common/utils/arnie/get-arnie-quotes.spec.ts`
 
 are passing, including the timing constraint test.
+
+## 10) Candidate Submission Instructions
+
+Please submit your solution using your own repository:
+
+1. Fork this repository.
+2. Work in your fork (create your branch there).
+3. Submit either:
+
+- a pull request from your fork, or
+- a link to your fork/branch with your final solution.
