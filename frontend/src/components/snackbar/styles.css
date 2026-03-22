@@ -1,0 +1,155 @@
+@keyframes rotate {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+.snackbar-toast {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 52px;
+  border-radius: 12px;
+  padding: 4px 16px 4px 4px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+  background-color: white;
+}
+
+.snackbar-toast:not([data-type]) {
+  padding: 8px 16px;
+  color: white;
+  background-color: rgb(17 24 39);
+}
+
+.snackbar-toast[data-close-button='true'] .snackbar-content {
+  padding-right: 24px;
+}
+
+.snackbar-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  align-self: flex-start;
+}
+
+.snackbar-icon:not(.snackbar-unset) {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background-color: color-mix(in srgb, currentColor 8%, transparent);
+}
+
+.snackbar-icon:not(.snackbar-unset) svg {
+  width: 24px;
+  height: 24px;
+}
+
+.snackbar-loader {
+  display: none;
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: inherit;
+  background-color: rgb(243 244 246);
+  transform: none;
+}
+
+.snackbar-loader[data-visible='true'] {
+  display: inline-flex;
+}
+
+.snackbar-loading-icon {
+  z-index: 9;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  animation: rotate 3s infinite linear;
+  background: conic-gradient(transparent, rgba(0, 0, 0, 0.64));
+}
+
+.snackbar-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  gap: 2px;
+}
+
+.snackbar-title {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.54;
+}
+
+.snackbar-description {
+  font-size: 13px;
+  line-height: 1.38;
+  opacity: 0.64;
+}
+
+.snackbar-action-button,
+.snackbar-close-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 1px solid color-mix(in srgb, currentColor 16%, transparent);
+  background-color: transparent;
+  transition:
+    background-color 200ms,
+    border-color 200ms;
+  color: inherit;
+}
+
+.snackbar-action-button:hover,
+.snackbar-close-button:hover {
+  border-color: color-mix(in srgb, currentColor 24%, transparent);
+  background-color: color-mix(in srgb, currentColor 8%, transparent);
+}
+
+.snackbar-action-button {
+  border-radius: 6px;
+  padding: 2px 8px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.38;
+}
+
+.snackbar-close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border-radius: 50%;
+  transform: translate(-6px, 6px);
+}
+
+.snackbar-close-button > svg {
+  width: 14px;
+  height: 14px;
+  opacity: 0.8;
+}
+
+.snackbar-toast.snackbar-info .snackbar-icon {
+  color: rgb(37 99 235);
+}
+
+.snackbar-toast.snackbar-success .snackbar-icon {
+  color: rgb(22 163 74);
+}
+
+.snackbar-toast.snackbar-warning .snackbar-icon {
+  color: rgb(245 158 11);
+}
+
+.snackbar-toast.snackbar-error .snackbar-icon {
+  color: rgb(220 38 38);
+}
