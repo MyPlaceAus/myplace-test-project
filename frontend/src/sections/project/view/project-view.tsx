@@ -96,19 +96,6 @@ export const ProjectView = () => {
     return [...projectCards, ...templateCards];
   }, [dbProjects, templateByImage]);
 
-  const filteredCards = useMemo(() => {
-    const query = search.trim().toLowerCase();
-
-    if (!query) {
-      return combinedCards;
-    }
-
-    return combinedCards.filter((card) => {
-      const haystack = [card.title, card.description, card.industries.join(' ')].join(' ');
-      return haystack.toLowerCase().includes(query);
-    });
-  }, [combinedCards, search]);
-
   const handleCreateProject = async (template: (typeof templates)[number]) => {
     const userId = Number(user?.id);
 
@@ -141,7 +128,7 @@ export const ProjectView = () => {
   };
 
   return (
-    <main className="min-h-screen bg-linear-to-b from-background via-background to-muted/20">
+    <main className="min-h-screen w-full bg-linear-to-b from-background via-background to-muted/20">
       <section className="mx-auto w-full max-w-7xl px-6 py-8 md:py-10">
         <div className="mb-7 flex items-start justify-between gap-4">
           <div>
@@ -180,7 +167,7 @@ export const ProjectView = () => {
         </div>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
-          {filteredCards.map((card) => {
+          {combinedCards.map((card) => {
             const loading =
               card.kind === 'template' && card.template ? isCreating === card.template.name : false;
 
